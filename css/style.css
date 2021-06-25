@@ -329,7 +329,7 @@ section {
     position: absolute;
     left: -53%;
     bottom: 0;
-    background-color: #C4C4C4;
+    background-color: #fff;
     width:100%;
     height: 100%;
     overflow: hidden;
@@ -344,7 +344,20 @@ section {
     width: 110%;
 }
 .skew_car {
-    left: 44%;
+    /* left: 44%; */
+}
+.skew_car:before {
+    position: absolute;
+    content: '';
+    left: 638px;
+    top: 50px;
+    /* top: 0;
+    bottom: 0;
+    right: 0; */
+    width: 110%;
+    height: 100%;
+    background: url(../img/bg/car_bg.png) center no-repeat;
+    transform: skew(-14deg);
 }
 .skew_block_white {
     background: linear-gradient(180deg, #EEEEEE 0%, #F3F3F3 100%);
@@ -675,9 +688,9 @@ z-index: 4;
     }
 }
 @media(min-width: 1900px) {
-    .skew_car {
+    /* .skew_car {
         top: -30%;
-    }
+    } */
     /* footer .skew_block {
         left: -54%;
     } */
