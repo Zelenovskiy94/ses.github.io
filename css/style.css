@@ -9,8 +9,12 @@
 body {
     position: relative;
 }
-body, html {
+/* body, html {
     overflow-x: hidden;
+} */
+.app {
+    overflow-x: hidden;
+    max-width: 100%;
 }
 li {
     list-style: none;
@@ -327,6 +331,7 @@ section {
 
 .skew_block {
     position: absolute;
+    left: -53%;
     bottom: 0;
     background-color: #fff;
     width:100%;
