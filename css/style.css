@@ -327,7 +327,6 @@ section {
 
 .skew_block {
     position: absolute;
-    left: -53%;
     bottom: 0;
     background-color: #fff;
     width:100%;
@@ -345,6 +344,7 @@ section {
     width: 110%;
 }
 .skew_car {
+    left: calc(-50% + -40px);
     /* left: 44%; */
 }
 .skew_car:before {
