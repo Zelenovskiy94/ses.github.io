@@ -20,6 +20,16 @@ $('.btn_play_video').click(function(event) {
     $('.modal_video').addClass('active')  
 });
 
+$('.btn_nav_menu').click(function(){
+  $('.mobile_menu').toggleClass('active')
+  $('body').addClass("fixed-position");
+})
+$('.btn_nav_close').click(function(){
+  $('.mobile_menu').removeClass('active')
+  $('body').removeClass("fixed-position");
+})
+
+
 
 let element = document.querySelector('.modal_video'), bubbles = false;
 
@@ -39,4 +49,55 @@ function attrModified(mutation) {
         element.classList.remove('active')
         $('.modal_video').html(' ')
     }
+}
+
+
+let changeColorSelect = () => {
+    country.onchange = () => {
+        if(country.value) {
+            country.style.color = '#191919'
+        }
+    }
+}
+changeColorSelect ()
+
+
+var requestUrl = 'https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json';
+var xhr = new XMLHttpRequest();
+
+xhr.open('GET', requestUrl, true);
+xhr.responseType = 'json';
+xhr.send()
+
+xhr.onload = function() {
+  var countryList = xhr.response;
+  console.log(countryList)
+  countryFunction(countryList);
+}
+
+function countryFunction(jsonObj) {
+    let arr = []
+  for (var key in jsonObj){
+    arr.push(key)
+  }
+  for(let key of arr.sort()) {
+    var countryName = document.createElement('option');
+    let country = document.getElementById('country')
+    countryName.innerHTML = key;
+    if(country) {
+        country.append(countryName);
+    }
+  }
+}
+if (window.innerWidth < 1280 && window.innerWidth >= 700) {
+const swiper = new Swiper('.swiper-container', {
+  slidesPerView: 'auto',
+  spaceBetween: 37,
+});
+}
+if (window.innerWidth < 700) {
+const swiper = new Swiper('.swiper-container', {
+  slidesPerView: 'auto',
+  spaceBetween: 25,
+});
 }
